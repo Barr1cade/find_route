@@ -25,7 +25,7 @@ def home(request, pk=None):
     # city = City.objects.get(id=pk)
     # city = get_object_or_404(City, id=pk)
     # context = {'object': city}
-    # return render(request, 'trains/detail.html', context)
+    # return render(request, 'cities/detail.html', context)
     form = CityForm()
     qs = City.objects.all()
     lst = Paginator(qs, 5)
