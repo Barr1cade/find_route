@@ -5,15 +5,14 @@ from cities.models import City
 
 
 class Train(models.Model):
-    name = models.CharField(max_length=50, unique=True,
+    name = models.CharField(max_length=50, unique=False,
                             verbose_name='Номер поезда')
     travel_time = models.PositiveSmallIntegerField(verbose_name='Время в пути')
     from_city = models.ForeignKey(City, on_delete=models.CASCADE,
-                                  # null=True, blank=True,
                                   related_name='from_city_set',
                                   verbose_name='Из какого города'
                                   )
-    to_city = models.ForeignKey('cities.City', on_delete=models.CASCADE,
+    to_city = models.ForeignKey(City, on_delete=models.CASCADE,
                                 related_name='to_city_set',
                                 verbose_name='В какой город'
                                 )
@@ -42,7 +41,7 @@ class Train(models.Model):
 
 
 class TrainTest(models.Model):
-    name = models.CharField(max_length=50, unique=True,
+    name = models.CharField(max_length=50, unique=False,
                             verbose_name='Номер поезда')
     from_city = models.ForeignKey(City, on_delete=models.CASCADE,
                                   # null=True, blank=True,
