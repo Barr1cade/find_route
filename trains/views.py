@@ -16,10 +16,9 @@ __all__ = (
 
 
 def home(request, pk=None):
-    qs = Train.objects.all()
-    # qs2 = Train.objects.select_related('from_city.station', 'from_city.platform',
-    #                                   'to_city.station', 'to_city.platform')
-    lst = Paginator(qs, 5)
+    # qs = Train.objects.all()
+    qs2 = Train.objects.select_related('from_city', 'to_city')
+    lst = Paginator(qs2, 5)
     page_number = request.GET.get('page')
     page_obj = lst.get_page(page_number)
     context = {'page_obj': page_obj}

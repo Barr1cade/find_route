@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-md-8 mx-auto my-5">
         <table class="table table-striped">
-            <tr>
+            <tr style="text-align: center;">
                 <th>Номер</th>
                 <th>Откуда</th>
                 <th>Вокзал</th>
@@ -26,15 +26,15 @@
                 </td>
                 <td>{{ object.from_city }}</td>
                 <td style="text-align: center;">
-                    {% if object.station %}
-                    {{ object.station }}
+                    {% if object.from_city.station %}
+                    {{ object.from_city.station }}
                     {% else %}
                     <span>-/-</span>
                     {% endif %}
                 </td>
                 <td style="text-align: center;">
-                    {% if object.platform %}
-                    {{ object.platform }}
+                    {% if object.from_city.platform %}
+                    {{ object.from_city.platform }}
                     {% else %}
                     <span>-/-</span>
                     {% endif %}
@@ -47,15 +47,15 @@
                     {% endif %}
                 </td>
                 <td style="text-align: center;">
-                    {% if object.station %}
-                    {{ object.station }}
+                    {% if object.to_city.station %}
+                    {{ object.to_city.station }}
                     {% else %}
                     <span>-/-</span>
                     {% endif %}
                 </td>
                 <td style="text-align: center;">
-                    {% if object.platform %}
-                    {{ object.platform }}
+                    {% if object.to_city.platform %}
+                    {{ object.to_city.platform }}
                     {% else %}
                     <span>-/-</span>
                     {% endif %}
